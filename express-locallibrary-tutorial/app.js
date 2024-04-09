@@ -11,7 +11,7 @@ var app = express();
 
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
-const mongoDB = 'mongodb://localhost:27017';
+const mongoDB = 'mongodb://localhost:27017/local_library';
 main().catch((err) => console.log(err));
 async function main() {
   await mongoose.connect(mongoDB);
