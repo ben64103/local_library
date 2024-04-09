@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const catalogRouter = require('./routes/catalog'); // Import routes for "catalog" area of site
 
 var app = express();
 
@@ -15,7 +16,7 @@ const mongoDB = 'mongodb://localhost:27017/local_library';
 main().catch((err) => console.log(err));
 async function main() {
   await mongoose.connect(mongoDB);
-  console.log('connected to mongodb...'); 
+  console.log('connected to mongodb...');
 }
 
 // view engine setup
@@ -30,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/catalog', catalogRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
