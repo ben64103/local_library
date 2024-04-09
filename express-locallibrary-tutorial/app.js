@@ -15,6 +15,7 @@ const mongoDB = 'mongodb://localhost:27017/local_library';
 main().catch((err) => console.log(err));
 async function main() {
   await mongoose.connect(mongoDB);
+  console.log('connected to mongodb...'); 
 }
 
 // view engine setup
