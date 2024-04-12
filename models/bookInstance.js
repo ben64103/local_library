@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
+import { DateTime } from 'luxon';
+
 const BookInstanceSchema = new Schema({
   book: { type: Schema.Types.ObjectId, ref: 'Book', required: true },
   imprint: { type: String, required: true },
@@ -17,5 +19,9 @@ const BookInstanceSchema = new Schema({
 BookInstanceSchema.virtual('url').get(function () {
   return `catalog/bookinstance/${this._id}`;
 });
+
+// BookInstanceSchema.virtual('due_back_formatted').get(function () {
+// return DateTime.
+// })
 
 module.exports = mongoose.model('BookInstance', BookInstanceSchema);
