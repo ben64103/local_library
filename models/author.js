@@ -19,7 +19,7 @@ AuthorSchema.virtual('name').get(function () {
 
 AuthorSchema.virtual('url').get(function () {
   // We don't need the arrow function as we need the this object...
-  return `catalog/author/${this._id}`;
+  return `/catalog/author/${this._id}`;
 });
 
 module.exports = mongoose.model('Author', AuthorSchema);
